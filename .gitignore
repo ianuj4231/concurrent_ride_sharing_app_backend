@@ -1,0 +1,19 @@
+# Dependency folder (never upload this, it's huge!)
+node_modules/
+
+# Compilation outputs (if you build your TS into JS later)
+dist/
+build/
+
+# Environment variables (for storing secret API keys later)
+.env
+.env.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating system files
+.DS_Store
+Thumbs.db
