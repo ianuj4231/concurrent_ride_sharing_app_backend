@@ -1,19 +1,36 @@
-# Dependency folder (never upload this, it's huge!)
+# Dependencies
 node_modules/
 
-# Compilation outputs (if you build your TS into JS later)
+# Build outputs
 dist/
 build/
+coverage/
 
-# Environment variables (for storing secret API keys later)
+# Environment variables
 .env
-.env.local
+.env.*
+!.env.example
 
 # Logs
+logs/
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# Operating system files
+# OS files
 .DS_Store
 Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Prisma generated client (only if generated locally)
+generated/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
