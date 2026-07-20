@@ -7,18 +7,37 @@ datasource db {
   provider = "mysql"
 }
 
-model User { 
-  id    Int     @id @default(autoincrement()) 
-  email String  @unique
-  name  String?
-  posts Post[]
-} 
 
-model Post { 
-  id        Int     @id @default(autoincrement()) 
-  title     String
-  content   String? @db.Text
-  published Boolean @default(false) 
-  author    User    @relation(fields: [authorId], references: [id]) 
-  authorId  Int
-} 
+model Booking {
+  id           Int           @id @default(autoincrement())
+  passengerId  Int
+  passenger    User          @relation("PassengerBookings", fields: [passengerId], references: [id])
+  driverId     Int?          // <-- Add this field
+  driver       User?         @relation("DriverBookings", fields: [driverId], references: [id]) // <-- Add this relation
+  status       BookingStatus @default(PENDING)
+  sourceLat    Float
+  sourceLon    Float
+  destLat      Float
+  destLon      Float
+}
+
+model User {
+  id               Int       @id @default(autoincrement())
+  email            String
+  name             String?
+  role             Role      @default(PASSENGER)
+  bookings         Booking[] @relation("PassengerBookings") // <-- Update relation name
+  assignedBookings Booking[] @relation("DriverBookings")     // <-- Add reverse relation
+}
+
+enum Role {
+  PASSENGER
+  DRIVER
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  COMPLETED
+  CANCELLED
+}

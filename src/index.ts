@@ -1,0 +1,1 @@
+import { seedRouter } from "./routers/seed.router";
