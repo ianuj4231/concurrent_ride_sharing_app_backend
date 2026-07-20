@@ -21,8 +21,18 @@ lock has been acquired on common resource - booking_id.
 
 /////
 
-low-latency sub-second updates:
-<img width="1920" height="1080" alt="Screenshot (408)" src="https://github.com/user-attachments/assets/6b672ddf-9cd2-4eaf-94cb-6b5b091ede60" />
+low-latency sub-second updates  ( 4 ms ):
+so driver id 2 accepts booking he gets success message  "message": "You won the race! Navigate to pickup"   at 22:45:35.938
+<img width="1920" height="1080" alt="Screenshot (399)" src="https://github.com/user-attachments/assets/e7e6996b-d814-46a2-8249-d17636e627b6" />
+
+while competing drivers 1 and 3 get a failure message stating a competitior with id 2 has won.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/54cb788c-cb0f-475c-8a01-4de035fe001e" />
+
+and for passenger update will appear in real time  at  22:45:35.942
+{"driverId": 2,    "message": "A driver has accepted your ride and is on the way!"}
+
+<img width="1914" height="1080" alt="image" src="https://github.com/user-attachments/assets/1556b44f-01df-4876-b208-44dca5415c6a" />
+
 
 
 
